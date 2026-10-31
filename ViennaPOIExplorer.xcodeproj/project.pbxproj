@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 56;
+    objects = {
+        7A0E202702B9E4C900A7A5C3 /* ViennaPOIExplorer.app */ = {
+            isa = PBXFileReference;
+            explicitFileType = wrapper.application;
+            includeInIndex = 0;
+            path = ViennaPOIExplorer.app;
+            sourceTree = BUILT_PRODUCTS_DIR;
+        };
+        7A0E202802B9E4C900A7A5C3 /* ViennaPOIExplorerApp.swift */ = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = ViennaPOIExplorerApp.swift;
+            sourceTree = "<group>";
+        };
+        7A0E202902B9E4C900A7A5C3 /* ContentView.swift */ = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = ContentView.swift;
+            sourceTree = "<group>";
+        };
+        7A0E202A02B9E4C900A7A5C3 /* AppState.swift */ = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = AppState.swift;
+            sourceTree = "<group>";
+        };
+        7A0E202B02B9E4C900A7A5C3 /* POI.swift */ = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = POI.swift;
+            sourceTree = "<group>";
+        };
+        7A0E202C02B9E4C900A7A5C3 /* POIService.swift */ = {
+            isa = PBXFileReference;
+            lastKnownFileType = sourcecode.swift;
+            path = POIService.swift;
+            sourceTree = "<group>";
+        };
+        7A0E202D02B9E4C900A7A5C3 /* Assets.xcassets */ = {
+            isa = PBXFileReference;
+            lastKnownFileType = folder.assetcatalog;
+            path = Assets.xcassets;
+            sourceTree = "<group>";
+        };
+        7A0E202E02B9E4C900A7A5C3 /* Info.plist */ = {
+            isa = PBXFileReference;
+            lastKnownFileType = text.plist.xml;
+            path = Info.plist;
+            sourceTree = "<group>";
+        };
+        7A0E203002B9E4C900A7A5C3 /* App */ = {
+            isa = PBXGroup;
+            children = (
+                7A0E202802B9E4C900A7A5C3 /* ViennaPOIExplorerApp.swift */,
+            );
+            path = App;
+            sourceTree = "<group>";
+        };
+        7A0E203102B9E4C900A7A5C3 /* AppState */ = {
+            isa = PBXGroup;
+            children = (
+                7A0E202A02B9E4C900A7A5C3 /* AppState.swift */,
+            );
+            path = AppState;
+            sourceTree = "<group>";
+        };
+        7A0E203202B9E4C900A7A5C3 /* Models */ = {
+            isa = PBXGroup;
+            children = (
+                7A0E202B02B9E4C900A7A5C3 /* POI.swift */,
+            );
+            path = Models;
+            sourceTree = "<group>";
+        };
+        7A0E203302B9E4C900A7A5C3 /* Services */ = {
+            isa = PBXGroup;
+            children = (
+                7A0E202C02B9E4C900A7A5C3 /* POIService.swift */,
+            );
+            path = Services;
+            sourceTree = "<group>";
+        };
+        7A0E203402B9E4C900A7A5C3 /* Views */ = {
+            isa = PBXGroup;
+            children = (
+                7A0E202902B9E4C900A7A5C3 /* ContentView.swift */,
+            );
+            path = Views;
+            sourceTree = "<group>";
+        };
+        7A0E203502B9E4C900A7A5C3 /* ViennaPOIExplorer */ = {
+            isa = PBXGroup;
+            children = (
+                7A0E203002B9E4C900A7A5C3 /* App */,
+                7A0E203102B9E4C900A7A5C3 /* AppState */,
+                7A0E203202B9E4C900A7A5C3 /* Models */,
+                7A0E203302B9E4C900A7A5C3 /* Services */,
+                7A0E203402B9E4C900A7A5C3 /* Views */,
+                7A0E202D02B9E4C900A7A5C3 /* Assets.xcassets */,
+                7A0E202E02B9E4C900A7A5C3 /* Info.plist */,
+            );
+            path = ViennaPOIExplorer;
+            sourceTree = "<group>";
+        };
+        7A0E203602B9E4C900A7A5C3 /* Products */ = {
+            isa = PBXGroup;
+            children = (
+                7A0E202702B9E4C900A7A5C3 /* ViennaPOIExplorer.app */,
+            );
+            name = Products;
+            sourceTree = "<group>";
+        };
+        7A0E203702B9E4C900A7A5C3 /* Root */ = {
+            isa = PBXGroup;
+            children = (
+                7A0E203502B9E4C900A7A5C3 /* ViennaPOIExplorer */,
+                7A0E203602B9E4C900A7A5C3 /* Products */,
+            );
+            sourceTree = "<group>";
+        };
+        7A0E203A02B9E4C900A7A5C3 /* Project object */ = {
+            isa = PBXProject;
+            attributes = {
+                LastSwiftUpdateCheck = 1600;
+                LastUpgradeCheck = 1600;
+                ORGANIZATIONNAME = "Vienna POI Explorer";
+                TargetAttributes = {
+                    7A0E204B02B9E4C900A7A5C3 = {
+                        CreatedOnToolsVersion = 16.0;
+                    };
+                };
+            };
+            buildConfigurationList = 7A0E203D02B9E4C900A7A5C3 /* Project configuration list */;
+            compatibilityVersion = "Xcode 14.0";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (
+                en,
+                Base,
+            );
+            mainGroup = 7A0E203702B9E4C900A7A5C3 /* Root */;
+            productRefGroup = 7A0E203602B9E4C900A7A5C3 /* Products */;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (
+                7A0E204B02B9E4C900A7A5C3 /* ViennaPOIExplorer */,
+            );
+        };
+        7A0E203D02B9E4C900A7A5C3 /* Project configuration list */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                7A0E203E02B9E4C900A7A5C3 /* Debug */,
+                7A0E203F02B9E4C900A7A5C3 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        7A0E203E02B9E4C900A7A5C3 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ALWAYS_SEARCH_USER_PATHS = NO;
+                CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+                CLANG_ENABLE_MODULES = YES;
+                CLANG_ENABLE_OBJC_ARC = YES;
+                CODE_SIGN_STYLE = Automatic;
+                COPY_PHASE_STRIP = NO;
+                CURRENT_PROJECT_VERSION = 1;
+                DEBUG_INFORMATION_FORMAT = dwarf;
+                ENABLE_STRICT_OBJC_MSGSEND = YES;
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = ViennaPOIExplorer/Info.plist;
+                IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.example.viennaPOIExplorer;
+                PRODUCT_NAME = ViennaPOIExplorer;
+                SDKROOT = iphoneos;
+                SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+                SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+                SWIFT_VERSION = 5.9;
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Debug;
+        };
+        7A0E203F02B9E4C900A7A5C3 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ALWAYS_SEARCH_USER_PATHS = NO;
+                CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+                CLANG_ENABLE_MODULES = YES;
+                CLANG_ENABLE_OBJC_ARC = YES;
+                CODE_SIGN_STYLE = Automatic;
+                COPY_PHASE_STRIP = YES;
+                CURRENT_PROJECT_VERSION = 1;
+                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+                ENABLE_NS_ASSERTIONS = NO;
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = ViennaPOIExplorer/Info.plist;
+                IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.example.viennaPOIExplorer;
+                PRODUCT_NAME = ViennaPOIExplorer;
+                SDKROOT = iphoneos;
+                SWIFT_COMPILATION_MODE = wholemodule;
+                SWIFT_OPTIMIZATION_LEVEL = "-O";
+                SWIFT_VERSION = 5.9;
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Release;
+        };
+        7A0E204002B9E4C900A7A5C3 /* Sources */ = {
+            isa = PBXSourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                7A0E204302B9E4C900A7A5C3 /* ViennaPOIExplorerApp.swift in Sources */,
+                7A0E204402B9E4C900A7A5C3 /* ContentView.swift in Sources */,
+                7A0E204502B9E4C900A7A5C3 /* AppState.swift in Sources */,
+                7A0E204602B9E4C900A7A5C3 /* POI.swift in Sources */,
+                7A0E204702B9E4C900A7A5C3 /* POIService.swift in Sources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        7A0E204102B9E4C900A7A5C3 /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        7A0E204202B9E4C900A7A5C3 /* Resources */ = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                7A0E204802B9E4C900A7A5C3 /* Assets.xcassets in Resources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        7A0E204302B9E4C900A7A5C3 /* ViennaPOIExplorerApp.swift in Sources */ = {
+            isa = PBXBuildFile;
+            fileRef = 7A0E202802B9E4C900A7A5C3 /* ViennaPOIExplorerApp.swift */;
+        };
+        7A0E204402B9E4C900A7A5C3 /* ContentView.swift in Sources */ = {
+            isa = PBXBuildFile;
+            fileRef = 7A0E202902B9E4C900A7A5C3 /* ContentView.swift */;
+        };
+        7A0E204502B9E4C900A7A5C3 /* AppState.swift in Sources */ = {
+            isa = PBXBuildFile;
+            fileRef = 7A0E202A02B9E4C900A7A5C3 /* AppState.swift */;
+        };
+        7A0E204602B9E4C900A7A5C3 /* POI.swift in Sources */ = {
+            isa = PBXBuildFile;
+            fileRef = 7A0E202B02B9E4C900A7A5C3 /* POI.swift */;
+        };
+        7A0E204702B9E4C900A7A5C3 /* POIService.swift in Sources */ = {
+            isa = PBXBuildFile;
+            fileRef = 7A0E202C02B9E4C900A7A5C3 /* POIService.swift */;
+        };
+        7A0E204802B9E4C900A7A5C3 /* Assets.xcassets in Resources */ = {
+            isa = PBXBuildFile;
+            fileRef = 7A0E202D02B9E4C900A7A5C3 /* Assets.xcassets */;
+        };
+        7A0E204B02B9E4C900A7A5C3 /* ViennaPOIExplorer */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = 7A0E204D02B9E4C900A7A5C3 /* Build configuration list for PBXNativeTarget "ViennaPOIExplorer" */;
+            buildPhases = (
+                7A0E204002B9E4C900A7A5C3 /* Sources */,
+                7A0E204102B9E4C900A7A5C3 /* Frameworks */,
+                7A0E204202B9E4C900A7A5C3 /* Resources */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = ViennaPOIExplorer;
+            productName = ViennaPOIExplorer;
+            productReference = 7A0E202702B9E4C900A7A5C3 /* ViennaPOIExplorer.app */;
+            productType = "com.apple.product-type.application";
+        };
+        7A0E204D02B9E4C900A7A5C3 /* Build configuration list for PBXNativeTarget "ViennaPOIExplorer" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                7A0E204E02B9E4C900A7A5C3 /* Debug */,
+                7A0E204F02B9E4C900A7A5C3 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        7A0E204E02B9E4C900A7A5C3 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+                CODE_SIGN_STYLE = Automatic;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_TEAM = "";
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = ViennaPOIExplorer/Info.plist;
+                IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.example.viennaPOIExplorer;
+                PRODUCT_NAME = ViennaPOIExplorer;
+                SDKROOT = iphoneos;
+                SWIFT_VERSION = 5.9;
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Debug;
+        };
+        7A0E204F02B9E4C900A7A5C3 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+                CODE_SIGN_STYLE = Automatic;
+                CURRENT_PROJECT_VERSION = 1;
+                DEVELOPMENT_TEAM = "";
+                GENERATE_INFOPLIST_FILE = NO;
+                INFOPLIST_FILE = ViennaPOIExplorer/Info.plist;
+                IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+                MARKETING_VERSION = 1.0;
+                PRODUCT_BUNDLE_IDENTIFIER = com.example.viennaPOIExplorer;
+                PRODUCT_NAME = ViennaPOIExplorer;
+                SDKROOT = iphoneos;
+                SWIFT_VERSION = 5.9;
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Release;
+        };
+    };
+    rootObject = 7A0E203A02B9E4C900A7A5C3 /* Project object */;
+}
