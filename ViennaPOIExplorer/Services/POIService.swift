@@ -42,17 +42,28 @@ public final class POIService {
 
         for key in candidateKeys {
             if let value = root[key] as? [[String: Any]] {
-                return value.compactMap(POI.init(from:))
+                return value.compactMap { POI(from: $0) }
+            }
+
+            if let nested = root[key] as? [Any] {
+                let parsed = nested.compactMap { element -> POI? in
+                    guard let dictionary = element as? [String: Any] else {
+                        return nil
+                    }
+                    return POI(from: dictionary)
+                }
+                if parsed.isEmpty == false {
+                    return parsed
+                }
             }
         }
 
-        if let results = root["results"] as? [Any] {
-            return results.compactMap { item in
-                guard let dictionary = item as? [String: Any] else {
-                    return nil
-                }
-                return POI(from: dictionary)
-            }
+        if let properties = root["properties"] as? [String: Any], let poi = POI(from: properties) {
+            return [poi]
+        }
+
+        if let feature = root["feature"] as? [String: Any], let poi = POI(from: feature) {
+            return [poi]
         }
 
         return []
@@ -61,15 +72,46 @@ public final class POIService {
 
 private extension POI {
     init?(from dictionary: [String: Any]) {
-        let idValue = dictionary["id"] as? String ?? dictionary["uuid"] as? String ?? UUID().uuidString
-        let nameValue = dictionary["name"] as? String ?? dictionary["title"] as? String ?? "Unnamed place"
-        let categoryValue = dictionary["category"] as? String ?? dictionary["type"] as? String
-        let latitudeValue = dictionary["latitude"] as? Double ?? dictionary["lat"] as? Double
-        let longitudeValue = dictionary["longitude"] as? Double ?? dictionary["lon"] as? Double ?? dictionary["lng"] as? Double
-        let addressValue = dictionary["address"] as? String ?? dictionary["street"] as? String
-        let descriptionValue = dictionary["description"] as? String ?? dictionary["summary"] as? String
-        let sourceURLValue = dictionary["source_url"] as? String ?? dictionary["sourceUrl"] as? String
-        let isFavouriteValue = dictionary["favourite"] as? Bool ?? false
+        let baseDictionary: [String: Any]
+        if let properties = dictionary["properties"] as? [String: Any] {
+            baseDictionary = properties
+        } else {
+            baseDictionary = dictionary
+        }
+
+        let geometry = dictionary["geometry"] as? [String: Any]
+        let coordinates = geometry?["coordinates"] as? [Any]
+
+        let idValue = POI.stringValue(from: baseDictionary, keys: ["id", "uuid", "poi_id", "place_id"])
+            ?? POI.stringValue(from: dictionary, keys: ["id", "uuid", "poi_id", "place_id"])
+            ?? UUID().uuidString
+
+        let nameValue = POI.stringValue(from: baseDictionary, keys: ["name", "title", "label", "display_name"]) ??
+            POI.stringValue(from: dictionary, keys: ["name", "title", "label", "display_name"]) ??
+            "Unnamed place"
+
+        let categoryValue = POI.stringValue(from: baseDictionary, keys: ["category", "type", "kind", "class"])
+            ?? POI.stringValue(from: dictionary, keys: ["category", "type", "kind", "class"])
+
+        let latitudeValue = POI.doubleValue(from: baseDictionary, keys: ["latitude", "lat", "y"]) ??
+            POI.doubleValue(from: dictionary, keys: ["latitude", "lat", "y"]) ??
+            coordinateValue(from: coordinates, index: 1)
+
+        let longitudeValue = POI.doubleValue(from: baseDictionary, keys: ["longitude", "lon", "lng", "x"]) ??
+            POI.doubleValue(from: dictionary, keys: ["longitude", "lon", "lng", "x"]) ??
+            coordinateValue(from: coordinates, index: 0)
+
+        let addressValue = POI.stringValue(from: baseDictionary, keys: ["address", "street", "street_name", "location", "full_address"]) ??
+            POI.stringValue(from: dictionary, keys: ["address", "street", "street_name", "location", "full_address"])
+
+        let descriptionValue = POI.stringValue(from: baseDictionary, keys: ["description", "summary", "details", "descriptionText"]) ??
+            POI.stringValue(from: dictionary, keys: ["description", "summary", "details", "descriptionText"])
+
+        let sourceURLValue = POI.stringValue(from: baseDictionary, keys: ["source_url", "sourceUrl", "sourceURL"]) ??
+            POI.stringValue(from: dictionary, keys: ["source_url", "sourceUrl", "sourceURL"])
+
+        let isFavouriteValue = POI.boolValue(from: baseDictionary, keys: ["favourite", "favorite", "isFavourite"]) ||
+            POI.boolValue(from: dictionary, keys: ["favourite", "favorite", "isFavourite"])
 
         self.id = idValue
         self.name = nameValue
@@ -80,5 +122,20 @@ private extension POI {
         self.description = descriptionValue
         self.sourceURL = sourceURLValue
         self.isFavourite = isFavouriteValue
+    }
+
+    static func coordinateValue(from coordinates: [Any]?, index: Int) -> Double? {
+        guard let coordinates, coordinates.indices.contains(index) else {
+            return nil
+        }
+
+        let value = coordinates[index]
+        if let number = value as? NSNumber {
+            return number.doubleValue
+        }
+        if let string = value as? String, let parsed = Double(string) {
+            return parsed
+        }
+        return nil
     }
 }

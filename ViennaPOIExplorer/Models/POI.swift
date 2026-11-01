@@ -30,3 +30,60 @@ public struct POI: Identifiable, Codable, Equatable {
         return annotation
     }
 }
+
+extension POI {
+    static func stringValue(from dictionary: [String: Any], keys: [String]) -> String? {
+        for key in keys {
+            if let value = dictionary[key] as? String {
+                return value
+            }
+            if let value = dictionary[key] as? NSString {
+                return value as String
+            }
+            if let value = dictionary[key] as? NSNumber {
+                return value.stringValue
+            }
+        }
+        return nil
+    }
+
+    static func boolValue(from dictionary: [String: Any], keys: [String]) -> Bool {
+        for key in keys {
+            if let value = dictionary[key] as? Bool {
+                return value
+            }
+            if let value = dictionary[key] as? NSNumber {
+                return value.boolValue
+            }
+            if let value = dictionary[key] as? NSString {
+                let normalized = value.lowercased
+                if normalized == "true" || normalized == "1" {
+                    return true
+                }
+                if normalized == "false" || normalized == "0" {
+                    return false
+                }
+            }
+        }
+        return false
+    }
+
+    static func doubleValue(from dictionary: [String: Any], keys: [String]) -> Double? {
+        for key in keys {
+            if let value = dictionary[key] as? Double {
+                return value
+            }
+            if let value = dictionary[key] as? Int {
+                return Double(value)
+            }
+            if let value = dictionary[key] as? NSNumber {
+                return value.doubleValue
+            }
+            if let value = dictionary[key] as? String,
+               let parsed = Double(value.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                return parsed
+            }
+        }
+        return nil
+    }
+}

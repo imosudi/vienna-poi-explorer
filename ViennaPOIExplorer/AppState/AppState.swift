@@ -27,9 +27,11 @@ public final class AppState: ObservableObject {
             if let url = URL(string: "https://data.wien.gv.at") {
                 let items = try await service.fetchPOIs(from: url)
                 pois = items.isEmpty ? service.fallbackPOIs() : items
+                isNetworkAvailable = !items.isEmpty
                 statusMessage = items.isEmpty ? "Using local fallback data." : "Live data loaded."
             } else {
                 pois = service.fallbackPOIs()
+                isNetworkAvailable = false
                 statusMessage = "Using local fallback data."
             }
         } catch {
@@ -43,12 +45,17 @@ public final class AppState: ObservableObject {
 
     private func loadInitialData() {
         pois = service.fallbackPOIs()
+        isNetworkAvailable = false
         statusMessage = "No live dataset is connected in this initial milestone."
     }
 
     private func checkLocationPermission() {
         let status = CLLocationManager.authorizationStatus()
         locationStatus = status
+
+        if status == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
 }
 
